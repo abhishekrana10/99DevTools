@@ -1,0 +1,40 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+{%  block head_files %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#notes").val(localStorage.getItem("mynotes"));
+            $("#msg").hide();
+        });
+
+        function save_notes() {
+            localStorage.setItem("mynotes", $("#notes").val());
+            $("#msg").show();
+        }
+    </script>
+{%  endblock head_files %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+               Quick Notepad
+            </div>
+
+            <textarea rows="22" class="form-control myinput" id="notes" placeholder="Save your notes here." maxlength="9999"></textarea>
+            <br>
+            <div class="btn btn-info btn-rect" onclick="save_notes()">Save Notes</div>
+            <br>
+            <br>
+            <div id="msg" class="alert alert-success" role="alert">Notes saved successfully.</div>
+
+            <div class="well" style="margin-top: 30px;">
+                Want to save a link or code snippet or some important text quickly. Use quick notepad. All the details are
+                saved locally in your browser cache and will remain there until you clear your cache.
+                <br>
+                Saved notes persists between session and will be available when browser is reopened.
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}

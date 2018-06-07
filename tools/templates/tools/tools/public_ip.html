@@ -1,0 +1,23 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+{%  block head_files %}
+
+{%  endblock head_files %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                Your public IP Address is
+            </div>
+
+            <div class="well mywell" style="text-align: center;font-size: 30px;font-weight: bold">
+                {{ ip }}
+            </div>
+
+            <div style="margin-top: 30px;">
+                You can use <a href="{% url "tools:public_ip_api" %}" target="_blank">Public IP API</a> to get your public IP address in your code.
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}

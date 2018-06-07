@@ -1,0 +1,45 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+{%  block head_files %}
+    <script src= "{% static 'tools/js/md5.js' %}"></script>
+{%  endblock head_files %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                MD5 Hash Generator
+            </div>
+
+            <textarea rows="9" class="form-control myinput" id="md5_input" placeholder="Enter your input"
+                      name="md5_input" onkeyup="md5generator()" style="color:black;"></textarea>
+            <br>
+            <div name="Generate" class="btn btn-info btn-rect"  onclick="md5generator()">Generate MD5</div>
+            <br>
+            <br>
+
+            <div id="md5hash_output">
+            MD5 Hash:
+            <div class="input-group">
+                <text class="form-control myinput" name="md5_output"  id="md5_output">
+                </text>
+                <span class="input-group-btn">
+                    <div  name="copy_link" class="btn btn-info btn-rect" style="margin:0.5px"
+                          onclick="copyToClipboard('#md5_output'); selectText('md5_output');">
+                        Copy MD5 Hash
+                    </div>
+                </span>
+            </div>
+            </div>
+            <br>
+            <div class="well mywell" style="margin-top: 30px;">
+                The <a href="https://en.wikipedia.org/wiki/MD5">MD5 algorithm</a> is a widely used hash function producing a 128-bit hash value.
+                Although MD5 was initially designed to be used as a cryptographic hash function,
+                it has been found to suffer from extensive vulnerabilities.
+                <br>
+                It can still be used
+                as a checksum to verify data integrity, but only against unintentional corruption.
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}

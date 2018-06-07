@@ -1,0 +1,51 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/c_card_validate.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                Credit Card Validator/Generator
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control myinput" placeholder="Credit Card Number"
+                       name="cc_number" id="cc_number" maxlength="16" required>
+
+                <span class="input-group-btn">
+                    <div class="btn btn-info btn-rect" onclick="ccvalidate()"
+                    style="border: 1.5px solid #5bc0de;">Validate</div>
+                </span>
+            </div>
+
+            <br>
+            <br>
+            <div id="valid_card" class="alert alert-success myalert" role="alert">Valid credit card Number</div>
+            <div id="invalid_card" class="alert alert-danger myalert" role="alert">Invalid credit card Number</div>
+            <hr style="border-width=2px;">
+
+            <div type="button" class="btn btn-info btn-rect" onclick="show_creditcard_menu();">
+                Generate Credit Card Number
+            </div>
+            <br>
+            <br>
+            <div style="text-align:center;" id="card_menu">
+                <hr style="border-width=2px">
+                <div type="button" class="btn btn-info btn-rect" onclick="master_card();">Master Card</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="visa_card();">VISA</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="luhn_number();">
+                    Random number(Satisfies Luhn Algorithm)</div>
+                <hr style="border-width=2px">
+                <br>
+            </div>
+            <div class="well mywell" id="valid_cc" style="text-align: center;font-size: 30px;font-weight: bold">
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

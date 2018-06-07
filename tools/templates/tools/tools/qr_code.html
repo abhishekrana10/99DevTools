@@ -1,0 +1,82 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+                QR Code Generator
+            </div>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" class="form-control myinput" placeholder="Enter text here"
+                       name="qr_code_text" id="qr_code_text" maxlength="512" required>
+                <br>
+
+                <input type="submit" class="btn btn-info btn-rect" value="Generate QR Code Image">
+
+            </form>
+
+            {% if error %}
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if qr_filename %}
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <img src="{{qr_filename}}" width="290" height="290" id="qrimage" style="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input type="button" name="printImageBtn" id="printImageBtn" value="Print Image"
+                               class="btn btn-info btn-rect" onclick="printImg()"> &nbsp;&nbsp;
+                        <a href="{{qr_filename}}" download="{{ filename }}">
+                            <input type="button" name="saveImageBtn" id="saveImageBtn" value="Save Image"
+                                   class="btn btn-info btn-rect">
+                        </a>
+                    </div>
+                </div>
+
+            {% endif %}
+
+            <div class="well mywell" style="margin-top: 30px;">
+                QR code (Quick Response Code) is a type of matrix barcode (two dimensional barcode).
+                A barcode is a machine-readable optical label that contains information about the item to which it is attached.
+                A QR code consists of black squares arranged in a square grid on a white background,
+                which can be read by an imaging device such as a camera, and processed using Reed–Solomon error
+                correction until the image can be appropriately interpreted.
+                The required data is then extracted from patterns that are present in both horizontal and vertical components of the image.
+                <br><br>
+                Enter you text/link or information in the input field above and click the button to generate the QR code image.
+                Image will be downloaded automatically on submit.
+                <br><br>
+                Visit this <a href="https://barcode.com/201505124750/tips-for-using-qr-codes-successfully-in-2015-infographic.html"
+                              target="_blank" class="links">infographic link</a> to know more about QR codes.<br>
+                <a href="http://aftech.pbworks.com/f/40_Interesting_Ways_to_Use_QR_Codes_in_the_Cla(1).pdf" target="_blank" class="links">
+                    40 Interesting ways to use QR code</a><br>
+                <a href="https://www.cnet.com/how-to/five-awesome-qr-code-tricks/" target="_blank" class="links">
+                    5 awesome QR code tricks</a>
+
+
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        function printImg() {
+            pwin = window.open(document.getElementById("qrimage").src,"_blank");
+            pwin.onload = function () {window.pwin.print();}
+        }
+    </script>
+{% endblock body %}

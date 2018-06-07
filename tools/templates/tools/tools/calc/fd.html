@@ -1,0 +1,62 @@
+{%  extends "tools/tools/calc/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/base64.js' %}"></script>
+{%  endblock head_files %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                Fixed Deposit Calculators
+            </div>
+
+            Principal Amount:
+            <input type="number" min="0" class="form-control myinput" placeholder="Principal Amount" id="amount" value="10000">
+            <br>
+            Time in years:
+            <input type="number" min="0" class="form-control myinput" placeholder="Time in years" id="yr" value="10">
+            <br>
+            Annual Interest Rates:
+            <input type="number" min="0" class="form-control myinput" placeholder="Annual Interest Rates (in %)" id="rates" value="8">
+
+            <br>
+            <div class="btn btn-info btn-rect" onclick="fd();">Calculate</div>&nbsp;&nbsp;
+
+            <br><br>
+            <div class="mywell well" id="result" style="display: none;">
+                <label>Total: </label>&nbsp;&nbsp;<span id="total"></span>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock body %}
+
+{% block endjs %}
+<script type="text/javascript">
+    function fd() {
+        var amount = Number($("#amount").val());
+        var yr = $("#yr").val();
+        var rates = $("#rates").val();
+        var total = Number(amount) + Number((amount * rates * yr)/100);
+        console.log(total);
+        $("#result").show();
+        $("#total").html(total);
+    }
+
+$(document).ready(function(){
+    $('input:visible:enabled:first').focus();
+    fd();
+});
+</script>
+{% endblock endjs %}
+
+
+
+
+
+
+

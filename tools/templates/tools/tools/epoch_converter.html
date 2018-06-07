@@ -1,0 +1,34 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/epoch_converter.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <div class="tool-title">
+                    Epoch Time Converter
+                </div>
+
+                <input type="text" class="form-control myinput" placeholder="Enter Epoch Time"
+                       name="epochtime" id="epochtime" required>
+                <br>
+
+                <div class="btn btn-info btn-rect" onclick="epoch_to_date()">Convert to date & time</div>
+
+                <br><br>
+
+                <div>
+                    <text class="form-control myinput" name="date_output"  id="date_output"
+                          style="color:black;font-family:'Courier New', Courier, monospace;">
+                    </text>
+                </div>
+
+            </div>
+    </div>
+
+
+{% endblock body %}

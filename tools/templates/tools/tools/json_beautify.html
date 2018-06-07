@@ -1,0 +1,43 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/json_validator.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+                JSON Validator and Beautifier
+            </div>
+
+            <textarea class="form-control myinput" placeholder="Enter JSON string here." rows="22" id="json_string"
+                      style="font-family: Courier;font-size: 13px;white-space: nowrap;"></textarea>
+
+            <br>
+            <div class="btn btn-info btn-rect" onclick="json_validate();">Validate & Beautify JSON</div>&nbsp;&nbsp;
+            <div class="btn btn-info btn-rect" onclick="flatten();">Flatten the JSON</div>&nbsp;&nbsp;
+            <div class="btn btn-info btn-rect" onclick="sample_json();">Load Sample JSON</div>&nbsp;&nbsp;
+            <br>
+            <div style="margin-top:20px;"></div>
+            <div id="valid_json" class="alert alert-success" role="alert"><span id="s_msg"></span></div>
+            <div id="invalid_json" class="alert alert-danger" role="alert"><span id="e_msg"></span></div>
+
+            <div class="well mywell" style="margin-top: 30px;">
+                JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write.
+                It is easy for machines to parse and generate.<br><br>
+                It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999.<br>
+                JSON is a text format that is completely language independent but uses conventions that are
+                familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python,
+                and many others. These properties make JSON an ideal data-interchange language.
+                <br><br>
+                You can use this tool to validate, beautify or to flatten the JSON string.
+                <br><br>
+                You can add <a href="https://chrome.google.com/webstore/detail/json-borne-json-validator/jdlfgjpngcbjpdkbobhijcpfaainabai"
+                               target="_blank" class="links">Chrome App</a> to your browser to validate and beautify the JSON.
+            </div>
+        </div>
+    </div>
+{% endblock body %}

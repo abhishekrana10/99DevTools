@@ -1,0 +1,25 @@
+<div id="header" class=""
+     style="background-color:#5bc0de;height:60px;padding:10px 20px 10px 20px;">
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="text-left" style="padding:0px;font-size: 30px;vertical-align: center">
+                <a href="{% url "tools:index" %}" class="links" style="color: white;" title="Home">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 text-center">
+            <span style="font-size: 30px;
+            font-weight: bold;
+            color:white;
+            font-family: Courier;">
+                <a href="{% url "tools:index" %}" class="links" style="color: white;" title="Home">
+                    {{ project_name }}
+                </a>
+            </span>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 text-right">
+
+        </div>
+    </div>
+</div>

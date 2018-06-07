@@ -1,0 +1,63 @@
+body{
+    font-family: 'PT Serif', serif;
+    color: #000000;
+    font-size:15px;
+}
+
+.links{
+    color:#279bbe;
+    text-decoration: none !important;
+}
+
+.links:hover{
+    color:black;
+    cursor: pointer;
+}
+
+.linklist{
+    margin-bottom: 5px;
+}
+
+input{
+    color:black;
+    border-radius: 0px;
+}
+
+textarea{
+    color: black;
+    border-radius: 0px;
+}
+
+.myinput{
+    color: black;
+    border-radius: 0px;
+}
+
+.myalert{
+    border-radius: 0px;
+}
+
+.btn-rect{
+    border-radius: 0px;
+}
+
+.btn-rect:hover{
+    border: 1px solid black;
+    background: #ffffff;
+    color:black;
+}
+
+.tool-title{
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mywell{
+    border-radius: 0px;
+}
+
+.collsped{
+    padding-left: 30px;
+}

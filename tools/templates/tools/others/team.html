@@ -1,0 +1,38 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+{%  endblock head_files %}
+
+{% block body_parent %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+                Team behind {{ project_name }}
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: center;">
+                    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="abhishek-rana-6a23b0100"><a class="LI-simple-link" href='https://in.linkedin.com/in/abhishek-rana-6a23b0100?trk=profile-badge'>Abhishek Rana</a></div>
+                    <br>
+                    <a href="https://github.com/abhishekrana10/" target="_blank" class="links">Github</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" style="text-align: center;">
+                    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="anuragrana31189"><a class="LI-simple-link" href='https://in.linkedin.com/in/anuragrana31189?trk=profile-badge'>Anurag Rana</a></div>
+                    <br>
+                    <a href="https://github.com/anuragrana/" target="_blank" class="links">Github</a>
+                    <br>
+                    <a href="http://www.anuragrana.in" target="_blank" class="links">Home Page</a>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock body_parent %}

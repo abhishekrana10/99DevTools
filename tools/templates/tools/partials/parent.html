@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    {% include "tools/partials/parent_static_files.html" %}
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    {% block meta_tags %}
+    {% endblock meta_tags %}
+
+    {% block head_files %}
+    {% endblock head_files %}
+</head>
+<body>
+    {% block header %}
+        {% include "tools/partials/header.html" %}
+    {% endblock header %}
+
+    {% block menu %}
+        {% include "tools/partials/menu.html" %}
+    {% endblock menu %}
+
+    <div class="row" style="padding-top: 20px;">
+        {% block body_parent %}
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                {% block left_menu %}
+                    {% include "tools/partials/left_menu.html" %}
+                {% endblock left_menu %}
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                {% block body %}
+
+                {% endblock body %}
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                {% include "tools/partials/right_ad.html" %}
+            </div>
+
+        {% endblock body_parent %}
+     </div>
+
+
+    {% block footer %}
+        {% include "tools/partials/footer.html" %}
+    {% endblock footer %}
+
+    {% block endjs %}
+    {% endblock endjs %}
+
+    {% block static_end %}
+    {% endblock static_end %}
+
+</body>
+</html>

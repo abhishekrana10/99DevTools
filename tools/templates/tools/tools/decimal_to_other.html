@@ -1,0 +1,62 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+{%  block head_files %}
+    <script src= "{% static 'tools/js/convert_number.js' %}"></script>
+{%  endblock head_files %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                Number Conversion System
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <div type="button" class="btn btn-info btn-rect">Dec</div>
+                </span>
+                <input type="text" class="form-control" name="decimal_out" id="decimal_out" title="Enter the Deimal String" placeholder="Decimal" onkeyup="dec_convert();" >
+            </div>
+
+            <br>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <div type="button" class="btn btn-info btn-rect">Bin</div>
+                </span>
+                <input type="text" class="form-control" name="binary_out" id="binary_out" title="Enter the binary String" placeholder="Binary" onkeyup="bin_convert(); ">
+            </div>
+
+            <br>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <div type="button" class="btn btn-info btn-rect">Oct</div>
+                </span>
+                <input type="text" class="form-control" name="octal_out" id="octal_out" title="Enter the Octal String" placeholder="Octal" onkeyup="oct_convert(); ">
+            </div>
+
+            <br>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <div type="button" class="btn btn-info btn-rect">Hex</div>
+                </span>
+                <input type="text" class="form-control" name="hex_out" id="hex_out"
+                      title="Enter the Hexa-Decimal String" placeholder="Hexa-Decimal" onkeyup="hex_convert(); ">
+            </div>
+
+            <br>
+            <div style="text-align:center;">
+            <button type="button" class="btn btn-info btn-rect " onclick="convert();">Convert</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-default btn-rect " onclick="clearall();">Clear All</button>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+
+
+
+
+
+

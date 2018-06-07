@@ -1,0 +1,51 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+<script src= "{% static 'tools/js/string_functions.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+<form  Action="{% url 'tools:jsontoxml' %}" method="post">
+    {%csrf_token%}
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+                String Tinkering
+            </div>
+
+            <div>
+                <textarea rows="9" class="form-control myinput" id="user_string"
+                          name="user_string" placeholder="Enter your String"></textarea>
+            </div>
+            <br>
+            <div style="text-align:center;">
+                <div type="button" class="btn btn-info btn-rect" onclick="to_lowercase();">To lowercase</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="to_uppercase();">To UPPERCASE</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="reverse_string();">Reverse String</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="reverse_words_string();">
+                    Reverse Words of String</div>
+                <div type="button" class="btn btn-info btn-rect" onclick="find_length();">Length of Input</div>
+            </div>
+
+
+            <br>
+
+
+            <div style="text-align:center;">
+                <div type="button" class="btn btn-default btn-rect" onclick="clearall();">Clear All</div>
+            </div>
+
+            <br>
+
+            <div>
+                <textarea rows="9" class="form-control myinput" id="tinker_output"
+                          name="tinker_output"></textarea>
+            </div>
+
+        </div>
+    </div>
+</form>
+{% endblock body %}

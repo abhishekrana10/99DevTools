@@ -1,0 +1,56 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/base64.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                Base64 Encode/Decode
+            </div>
+            <div>
+                <textarea rows="9" class="form-control myinput" id="textstring"
+                          name="textstring" placeholder="Input String"></textarea>
+
+            </div>
+
+            <br>
+            <div style="text-align:center;">
+                <div type="button" class="btn btn-info btn-rect" onclick="encode();">Encode</div>&nbsp;&nbsp;
+                <div type="button" class="btn btn-info btn-rect" onclick="decode();">Decode</div>&nbsp;&nbsp;
+                <div type="button" class="btn btn-default btn-rect" onclick="clearall();">Clear All</div>
+            </div>
+            <br>
+
+            <div >
+                <textarea rows="9" class="form-control myinput" id="base64"
+                          placeholder="Output String" name="base64"></textarea>
+            </div>
+            <br>
+            <div class="well mywell" style="margin-top: 30px;">
+                <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> is a group of similar binary-to-text encoding
+                schemes that represent binary data
+                in an ASCII string format by translating it into a radix-64 representation. The term
+                Base64 originates from a specific MIME content transfer encoding.
+                <br>
+                Each base64 digit represents exactly 6 bits of data. Three 8-bit bytes (i.e., a total of 24 bits)
+                can therefore be represented by four 6-bit base64 digits.
+            </div>
+
+            <br>
+            <br>
+
+
+        </div>
+    </div>
+{% endblock body %}
+
+
+
+
+
+
+

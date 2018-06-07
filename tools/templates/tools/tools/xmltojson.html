@@ -1,0 +1,74 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+<script src= "{% static 'tools/js/xmltojson.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+<form  Action="{% url 'tools:xmltojson' %}" method="post">
+    {%csrf_token%}
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="tool-title">
+                XML to JSON Converter
+            </div>
+
+            <div>
+                <textarea rows="9" class="form-control myinput" id="xmlarea"
+                          name="xmlarea" placeholder="XML Input"
+                          style="font-family: Courier;font-size: 13px;white-space: nowrap;">{{xmlinput}}</textarea>
+            </div>
+
+            <br>
+
+
+
+            <div style="text-align:center;">
+                <input type="Submit"  name="xml_to_json" id="xml_to_json" value="XML to JSON"
+                       class="btn btn-info btn-rect">
+                <div type="button" class="btn btn-info btn-rect" onclick="json_validate();">Check and Beautify JSON</div>
+
+                <div type="button" class="btn btn-default btn-rect" onclick="clearall();">Clear All</div>
+            </div>
+
+
+            <br>
+
+            {% if post%}
+                {% if error %}
+                    <div >
+                        <div id="invalid_xml" class="alert alert-danger myalert" role="alert">Invalid XML<br><span
+                                id="e_msg">{{error_msg}}</span></div>
+                        <br>
+                        <textarea rows="9" class="form-control myinput" id="jsonarea" placeholder="JSON Output"
+                          name="jsonarea" style="font-family: Courier;font-size: 13px;white-space: nowrap;"></textarea>
+                    </div>
+                {% else %}
+                   <div >
+                    <textarea rows="9" class="form-control myinput" id="jsonarea" placeholder="JSON Output"
+                              name="jsonarea" style="font-family: Courier;font-size: 13px;white-space: nowrap;">{{jsonoutput}}</textarea>
+                    </div>
+                {% endif %}
+            {% else %}
+            <div >
+                <textarea rows="9" class="form-control myinput" id="jsonarea" placeholder="JSON Output"
+                          name="jsonarea" style="font-family: Courier;font-size: 13px;white-space: nowrap;"></textarea>
+            </div>
+            {% endif %}
+
+            <br>
+            <div id="invalid_json_js_msg" class="alert alert-danger myalert" role="alert">Invalid JSON<br><span
+                                ></span></div>
+
+            <div id="valid_json_js_msg" class="alert alert-success myalert" role="alert">valid JSON<br><span
+                                ></span></div>
+            <br>
+
+        </div>
+
+    </div>
+</form>
+{% endblock body %}

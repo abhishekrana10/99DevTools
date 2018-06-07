@@ -1,0 +1,39 @@
+{%  extends "tools/partials/parent.html" %}
+{% load static %}
+
+{%  block head_files %}
+    <script src= "{% static 'tools/js/url.js' %}"></script>
+{%  endblock head_files %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tool-title">
+                URL Encode/Decode
+            </div>
+            <div>
+                <textarea rows="9" class="form-control myinput" id="input_url"
+                          name="inputt_url" placeholder="URL Input"></textarea>
+
+            </div>
+
+            <br>
+            <div style="text-align:center;">
+                <div type="button" class="btn btn-info btn-rect" onclick="encodeurl();">Encode</div>&nbsp;&nbsp;
+                <div type="button" class="btn btn-info btn-rect" onclick="decodeurl();">Decode</div>&nbsp;&nbsp;
+                <div type="button" class="btn btn-default btn-rect" onclick="clearall();">Clear All</div>
+            </div>
+            <br>
+
+            <div >
+                <textarea rows="9" class="form-control myinput" id="output_url"
+                          placeholder="Output URL" name="output_url"></textarea>
+            </div>
+
+            <br>
+            <br>
+
+
+        </div>
+    </div>
+{% endblock body %}
